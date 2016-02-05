@@ -1,0 +1,45 @@
+<h1>Listing employees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>Salary</th>
+      <th>Department</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.name %></td>
+        <td><%= employee.age %></td>
+        <td><%= employee.email %></td>
+        <td><%= employee.salary %></td>
+        <td><%= employee.department.dept_name %></td>
+        <td><%= link_to 'Show', employee %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<pre>
+	<b> You can see some results by clicking on the below corresponding links
+</pre>
+<%= link_to 'New Employee', new_employee_path %>
+<%= link_to 'orderbyage', orderbyage_path %>
+<%= link_to 'orderbydept', orderbydept_path %>
+<%= link_to 'orderbysalary', orderbysalary_path %>
+<%= link_to 'retired', retired_path %>
+<%= link_to 'highestsalary', highestsalary_path %>
+<%= link_to 'top5salaries', top5salaries_path %>
+<%= link_to 'top5bydept', top5bydept_path %>
+<%= link_to 'top5seniors', top5seniors_path %>
+<%= link_to 'highlow', highlow_path %>
+<%= link_to 'lowsenior', lowsenior_path %>
